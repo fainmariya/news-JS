@@ -33,4 +33,15 @@ export enum NewsEndpoint {
     Sources = 'sources',
     Everything = 'everything',
 }
-export type HttpMethod = 'GET' | 'POST'|  'PATCH';
+export type HttpMethod = 'GET' | 'POST' | 'PATCH';
+export interface LoaderOptions {
+    apiKey: string;
+}
+export interface RequestOptions {
+    endpoint: NewsEndpoint;
+    options?: {
+        sources?: string;
+    };
+}
+export type QueryParams = Record<string, string | undefined>;
+export type DataCallback<T> = (data: T) => void;
