@@ -6,14 +6,12 @@ class AppLoader extends Loader {
         if (!apiUrl) {
             throw new Error('API_URL is not defined');
         }
-        const apiKey =process.env.API_KEY;
-            if (!apiKey) {
-                throw new Error('API_KEY is not defined');
-            }
+        const apiKey = process.env.API_KEY;
+        if (!apiKey) {
+            throw new Error('API_KEY is not defined');
+        }
         super(apiUrl, {
-            
             apiKey: apiKey,
-            
         });
     }
 }

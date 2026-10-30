@@ -1,5 +1,4 @@
-import type { LoaderOptions, RequestOptions, NewsEndpoint, QueryParams, HttpMethod, DataCallback } from "../../types";
-
+import type { LoaderOptions, RequestOptions, NewsEndpoint, QueryParams, HttpMethod, DataCallback } from '../../types';
 
 class Loader {
     private baseLink: string;
@@ -10,7 +9,7 @@ class Loader {
     }
 
     getResp<T>(
-        { endpoint, options = {} }:RequestOptions ,
+        { endpoint, options = {} }: RequestOptions,
         callback: DataCallback<T> = () => {
             console.error('No callback for GET response');
         }
@@ -29,7 +28,7 @@ class Loader {
     }
 
     makeUrl(options: QueryParams, endpoint: NewsEndpoint): string {
-        const urlOptions:  QueryParams = { ...this.options, ...options };
+        const urlOptions: QueryParams = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
