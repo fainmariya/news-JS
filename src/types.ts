@@ -23,6 +23,7 @@ export interface NewsSource {
     language: string;
     country: string;
 }
+export type SourcePreview = Pick<NewsSource, 'id' | 'name'>;
 export interface SourcesResponse {
     status: string;
     sources: NewsSource[];
@@ -32,14 +33,14 @@ export enum NewsEndpoint {
     Everything = 'everything',
 }
 export type HttpMethod = 'GET' | 'POST' | 'PATCH';
-export interface LoaderOptions {
+export type LoaderOptions = Readonly<{
     apiKey: string;
-}
+}>;
 export interface RequestOptions {
     endpoint: NewsEndpoint;
-    options?: {
-        sources?: string;
-    };
+    options?: Partial<{
+        sources: string;
+    }>;
 }
 export type QueryParams = Record<string, string | undefined>;
 export type DataCallback<T> = (data: T) => void;

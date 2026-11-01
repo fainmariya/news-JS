@@ -3,7 +3,7 @@ import { NewsEndpoint } from '../../types';
 import { SourcesResponse, NewsResponse, DataCallback } from '../../types';
 
 class AppController extends AppLoader {
-    getSources(callback: DataCallback<SourcesResponse>) {
+    public getSources(callback: DataCallback<SourcesResponse>) {
         super.getResp(
             {
                 endpoint: NewsEndpoint.Sources,
@@ -12,7 +12,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: DataCallback<NewsResponse>) {
+    public getNews(e: Event, callback: DataCallback<NewsResponse>) {
         let target = e.target;
         if (!(target instanceof HTMLElement)) {
             return;

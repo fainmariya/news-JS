@@ -1,8 +1,8 @@
 import './sources.css';
-import type { NewsSource } from '../../../types';
+import type { SourcePreview } from '../../../types';
 
 class Sources {
-    draw(data: NewsSource[]) {
+    draw(data: SourcePreview[]) {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector<HTMLTemplateElement>('#sourceItemTemp');
         if (!sourceItemTemp) {
